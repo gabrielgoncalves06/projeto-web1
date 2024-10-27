@@ -1,0 +1,241 @@
+
+
+body{
+    margin: 0;
+    padding: 0;
+    padding-top: 40px;
+    font-family: Arial, sans-serif;
+    color: #555;
+    background-color: #f0f4f8;
+
+}
+
+main{
+    background-color: rgb(242, 242, 240);
+    margin: auto;
+    padding: 20px;
+    max-width: 1900px;
+    min-width: 340px;
+    border-radius: 6px;
+   
+    
+}
+p{
+    font-family: arial;
+    padding: 3px;
+    line-height: 2em;
+    font-size: 15pt;
+
+}
+
+
+
+/*para o menu*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Mostrar o submenu ao passar o mouse */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+
+
+
+nav{
+    background-color: rgb(3, 3, 3);
+    align-items: left;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-image: linear-gradient(to bottom, #000, #222);
+    display: flex;
+    gap: 15px;
+    border-bottom: 2px solid #000;
+    max-width: 19500px;
+    min-width: 240px;
+
+}
+
+a{
+    text-decoration: none;
+    color: #ffff;
+    padding :15px 20px;
+
+
+}
+
+a:hover{
+    background-image: linear-gradient(to top, #000, #222);
+}
+
+nav.shrink, a.shrink{
+
+    padding: 8px 20px;
+}
+
+
+
+
+
+/*conteúdo*/
+#cabecalho{
+    background-image: linear-gradient(to bottom, #5785ca, #0b457c);
+    padding-top: 10vh;
+    height: 40vh;
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+#h{
+    font-size: 30pt;
+    
+}
+
+.c{
+    margin: 30px;
+}
+
+#apresentacao1{
+    background-color: #ffffff;
+    padding-top: 10vh;
+    height: auto;
+  
+    text-align: center;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+
+#conteudo{
+    background-color: #007bff;
+    color: #f1f1f1;
+    border-radius: 10px;
+    width: 800px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 20px;
+    
+    
+}
+
+#apresentacao1 > h1{
+    text-align: left;
+    padding-left: 110px;
+}
+
+#apresentacao2{
+    background-color: #6d6e8a;
+    padding-top: 30vh;
+    height: 60vh;
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+footer{
+    background-color: #007bff;
+    color: white;
+    text-align: left;
+   
+}
+
+
+
+/*inicio modal*/
+
+
+dialog{
+    width: 40%;
+    min-width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+
+
+input, select, textarea {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button:hover { background-color: #0056b3; }
+
+
+/*modal centralizado*/
+dialog {
+    width: 40%;
+    min-width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: auto;
+    position: fixed; /* Mantém o modal sempre fixo na tela */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o modal */
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button[type="button"]{ background-color: #457291; }
+button[type="button"]:hover{ background-color: #164d5e; }
+
+dialog button{ margin-top: 20px;}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+dialog p.erro{
+    padding: 10px;
+    background-color: rgb(255, 190, 190);
+    color: rgb(86, 2, 2);
+    text-align: center;
+}
+/* Fim Modal*/
+footer{
+    text-align: center;
+}

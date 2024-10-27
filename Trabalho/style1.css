@@ -1,0 +1,110 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+header {
+    background-color: #16181a;
+    padding: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #003366;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Seções principais */
+main {
+    margin: 20px;
+}
+
+.section-title {
+    color: #003366;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 10px;
+}
+
+article {
+    background-color: #fff;
+    border-left: 4px solid #003366;
+    margin-bottom: 20px;
+    padding: 20px;
+   
+}
+
+article h2 {
+    color: #00509e;
+    margin-bottom: 10px;
+}
+
+article p {
+    color: #555;
+}
+
+/* Orçamento e comentários */
+#orcamento, #comentarios {
+    background-color: #e6f2ff;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 40px;
+}
+
+/* Estilos adicionais */
+h1, h2 {
+    font-weight: bold;
+}
+
+p {
+    line-height: 1.6;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./configuracoes.js" defer></script>
+</head>
+<body id="inicio">
+
+    <header>
+        <nav>
+            <a href="#inicio">Home</a>
+            <div class="dropdown">
+                <a href="#">Cadastros</a>
+                <div class="dropdown-content">
+                    <a href="cadastro1/index1.html">Eventos</a>
+                    <a href="cadastro2/index2.html">Convidados</a>
+                    <a href="cadastro3/index3.html">Fornecedores</a>
+                </div>
+            </div>
+            <a href="portfolio.html">Portfólio e Artigos</a>
+            <a href="contato.html">Contato</a>
+            <a href="#login" id="botaologin">Admin</a>
+        </nav>
+
+
+        <section id="cabecalho" >
+            
+            <h1 id="h">Blue Horizon</h1>
+            <p>Prestação de Serviços para o seu Evento</p>
+
+            <p>instagram: @bluehorizonpr</p>
+            
+        </section>
+       
+    </header>
+    <main>
+      
+
+        <section id="apresentacao1">
+            <h1>bluehorizonpr</h1>
+            <picture>
+                <source media="(max-width:400px)" srcset="imagens/pequeno.png" type="image/png">
+                <source media="(max-width:600px)" srcset="imagens/medio.png" type="image/png">
+                <img src="imagens/grande.png" alt="Evento">
+            </picture>
+        </section>
+
+       
+        <section id="apresentacao2" >
+            <h1 class="p">O que Somos?</h1>
+            <dd>
+                <p class="c">Somos uma empresa especializada na organização e execução de eventos de diversos portes e estilos. Nossa missão é transformar  <br> ideias em  experiências únicas, cuidando de cada detalhe, desde o planejamento até a finalização do evento. Atuamos em áreas como festas, eventos corporativos, casamentos, shows e feiras, oferecendo soluções personalizadas para atender às necessidades de cada cliente. Com uma equipe dedicada e experiente, garantimos que seu evento seja um sucesso, focando na excelência, criatividade e satisfação dos participantes.</p>
+            </dd>
+           
+        </section>
+
+
+
+        <section id="conteudo" >
+            <h1 class="p1"> Visão de Futuro</h1>
+    
+            <p> Com olhar atento ao horizonte azul,
+                Caminhamos juntos em um futuro sem igual.
+                A tecnologia e a arte unimos com maestria,
+                Para fazer do seu evento uma verdadeira sinfonia.
+            </p> 
+       
+           
+        </section>
+
+
+        <section id="conteudo" >
+            <h1 class="p1"> Nossos Serviços</h1>
+    
+            <p> Seja um casamento, conferência ou show,
+                Na BlueHorizon, o sucesso é o nosso flow.
+                Oferecemos desde o planejamento à execução,
+                Com paixão, cuidado e total dedicação.
+            </p> 
+       
+           
+        </section>
+    </main>
+
+    <dialog id="login">
+        <form>
+            <h2>Login</h2>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email"><br>
+            <label for="senha">Senha:</label>
+            <input type="password" name="senha" id="senha"><br>
+            <button type="button" id="botaofechar">Sair</button>
+            <button type="submit" >Entrar</button>
+        </form>
+    </dialog>
+    <footer>
+        <p>&copy; 2024 Todos os Direitos Reservados</p>
+    </footer>
+    <script src="./login.js"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+/*getal*/
+
+body{
+    margin: 0px;
+    font-family: Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*header*/
+
+header{
+    text-align: right;
+}
+
+/*menu*/
+.menuLateral{
+    width: 150px;
+    height: 100vh;
+    background-color: rgb(32, 96, 190);
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+}
+
+.menuLateral  a {
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/*inicio Conteúdo*/
+main{
+    margin-left: 200px;
+    flex: 1;
+}
+main.expandir { margin-left: 60px; }
+
+
+form{
+    width:60%;
+    min-width: 450px;
+    /*text-align: right;*/
+
+}
+
+form label {
+    display: inline-block;
+    width: calc(20% - 30px);
+    text-align: left;
+    margin: 10px;
+}
+
+form p.erro{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 0px;
+    background-color: rgb(255, 190, 190);
+    color: rgb(86, 2, 2);
+    text-align: center;
+}
+
+form p.sucesso{
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 0px;
+    background-color: rgb(190, 255, 212);
+    color: rgb(2, 86, 41);
+    text-align: center;
+}
+
+/*deixar o input mais refinado, opcional*/
+form input{
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button{
+    background-color: rgb(20, 82, 163);
+    color: #fff;
+}
+
+
+/*tabela*/
+table{
+
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: rgb(43, 80, 201);
+    color: white;
+}
+
+table tr td:last-child{
+    width: 80px;
+    text-align: center;
+}
+
+table th:last-child{text-align: center; }
+
+
+
+table td a{
+    font-weight: bold;
+    color: rgb(27, 102, 168); 
+}
+
+table td a:hover{ color: rgb(7, 60, 105); }
+
+table td a:last-child{
+    color: rgb(186, 36, 36);
+    margin-left: 10px;
+}
+table td a:last-child:hover{ color: rgb(133, 11, 11); }
+
+#orcamentos table tr th:last-child{ min-width: 200px;}

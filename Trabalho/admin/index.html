@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav  class="menuLateral">
+        <h1>Menu</h1>
+        <a href="index.html">Admin</a>
+    </nav>
+
+    <main>
+        <header>
+            <a href="../index.html" id="logout">Sair</a>
+        </header>
+    <h1>Relatório de Eventos</h1>
+    <table id="tabela1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Local</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+
+
+     <h1>Relatório de Convidados</h1>
+    <table id="tabela2">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+    </table>
+
+     <h1>Relatório de Fornecedores</h1>
+    <table id="tabela3">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+        </tbody>
+    </table>
+
+    <script>
+        // Recuperando os dados do Local Storage
+        let dados1 = JSON.parse(localStorage.getItem('dados1')) || [];
+        let dados2 = JSON.parse(localStorage.getItem('dados2')) || [];
+        let dados3 = JSON.parse(localStorage.getItem('dados3')) || [];
+    
+        // Função para remover um cadastro
+        function removercadastro(index, dados, chaveLocalStorage) {
+            dados.splice(index, 1);
+            localStorage.setItem(chaveLocalStorage, JSON.stringify(dados));
+            window.location.reload();
+        }
+    
+        // Função para editar um cadastro
+        function editarcadastro(index, dados, chaveLocalStorage, campos) {
+            campos.forEach(campo => {
+                const novoValor = prompt(`Digite o novo valor para ${campo.label}:`, dados[index][campo.nome]);
+                if (novoValor !== null) {
+                    dados[index][campo.nome] = novoValor;
+                }
+            });
+            localStorage.setItem(chaveLocalStorage, JSON.stringify(dados));
+            window.location.reload();
+        }
+    
+        // Funções para exibir cada tabela com o botão de editar
+        function atualizarTabela1() {
+            const tabela = document.querySelector('#tabela1 tbody');
+            tabela.innerHTML = '';
+            dados1.forEach((cadastro, index) => {
+                let dataFormatada = new Date(cadastro.data).toLocaleDateString('pt-BR');
+                const linha = document.createElement('tr');
+                linha.innerHTML = `
+                    <td>${cadastro.nome}</td>
+                    <td>${dataFormatada}</td>
+                    <td>${cadastro.local}</td>
+                    <td>
+                        <a href="#" onclick="editarcadastro(${index}, dados1, 'dados1', [{nome: 'nome', label: 'Nome'}, {nome: 'data', label: 'Data'}, {nome: 'local', label: 'Local'}])">Editar</a>
+                        <a href="#" onclick="removercadastro(${index}, dados1, 'dados1')">Excluir</a>
+                    </td>
+                `;
+                tabela.appendChild(linha);
+            });
+        }
+    
+        function atualizarTabela2() {
+            const tabela = document.querySelector('#tabela2 tbody');
+            tabela.innerHTML = '';
+            dados2.forEach((cadastro, index) => {
+                const linha = document.createElement('tr');
+                linha.innerHTML = `
+                    <td>${cadastro.nome}</td>
+                    <td>${cadastro.email}</td>
+                    <td>
+                        <a href="#" onclick="editarcadastro(${index}, dados2, 'dados2', [{nome: 'nome', label: 'Nome'}, {nome: 'email', label: 'Email'}])">Editar</a>
+                        <a href="#" onclick="removercadastro(${index}, dados2, 'dados2')">Excluir</a>
+                    </td>
+                `;
+                tabela.appendChild(linha);
+            });
+        }
+    
+        function atualizarTabela3() {
+            const tabela = document.querySelector('#tabela3 tbody');
+            tabela.innerHTML = '';
+            dados3.forEach((cadastro, index) => {
+                let precoFormatado = Number(cadastro.preco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                const linha = document.createElement('tr');
+                linha.innerHTML = `
+                    <td>${cadastro.nome}</td>
+                    <td>${precoFormatado}</td>
+                    <td>${cadastro.email}</td>
+                    <td>
+                        <a href="#" onclick="editarcadastro(${index}, dados3, 'dados3', [{nome: 'nome', label: 'Nome'}, {nome: 'preco', label: 'Preço'}, {nome: 'email', label: 'Email'}])">Editar</a>
+                        <a href="#" onclick="removercadastro(${index}, dados3, 'dados3')">Excluir</a>
+                    </td>
+                `;
+                tabela.appendChild(linha);
+            });
+        }
+    
+        // Carregar todas as tabelas ao carregar a página
+        window.onload = function() {
+            atualizarTabela1();
+            atualizarTabela2();
+            atualizarTabela3();
+        };
+    </script>
+    
+    
+</body>
+</html>
