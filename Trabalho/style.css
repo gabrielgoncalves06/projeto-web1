@@ -1,5 +1,6 @@
 
 
+
 body{
     margin: 0;
     padding: 0;
@@ -11,12 +12,10 @@ body{
 }
 
 main{
-    background-color: rgb(242, 242, 240);
-    margin: auto;
-    padding: 20px;
+ 
     max-width: 1900px;
     min-width: 340px;
-    border-radius: 6px;
+   
    
     
 }
@@ -127,7 +126,6 @@ nav.shrink, a.shrink{
     background-color: #ffffff;
     padding-top: 10vh;
     height: auto;
-  
     text-align: center;
     margin: auto;
     padding-bottom: 40px;
@@ -138,12 +136,29 @@ nav.shrink, a.shrink{
     background-color: #007bff;
     color: #f1f1f1;
     border-radius: 10px;
-    width: 800px;
+    width: 400px;
     padding: 10px;
-    margin: auto;
     margin-top: 20px;
+    box-shadow: 0 0 10px #000;
     
     
+}
+
+.block{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    gap: 1em;
+    
+
+}
+
+#conteudo:hover{
+    background-color: #ccc;
+    color: #000;
+    transition:  0.3s;
+
+
 }
 
 #apresentacao1 > h1{
@@ -157,7 +172,7 @@ nav.shrink, a.shrink{
     height: 60vh;
     color: white;
     text-align: center;
-    margin: auto;
+   
 }
 footer{
     background-color: #007bff;
