@@ -39,7 +39,10 @@ header{
 
 nav a{
     font-size: large;
+    text-decoration: none;
+    color: #fff;
 }
+
 
 
 /*inicio Conteúdo*/
