@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="menuLateral">
+        <h1>Menu</h1>
+        <a href="index.html">Admin</a>
+    </nav>
+
+    <main>
+        <header>
+            <a href="../index.html" id="logout">Sair</a>
+        </header>
+
+    <div id="s">
+      
+        <!-- Cadastro de Eventos -->
+        <section id="cadastro1">
+            <h2>Cadastro de Evento</h2>
+            <form id="formCadastroEvento">
+                <label for="eventoNome">Evento:</label>
+                <input type="text" name="nome" id="eventoNome"><br>
+    
+                <label for="eventoData">Data:</label>
+                <input type="date" name="data" id="eventoData"><br>
+    
+                <label for="eventoLocal">Local:</label>
+                <input type="text" name="local" id="eventoLocal"><br>
+    
+                <button type="reset">Limpar</button>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <h1>Relatório de Eventos</h1>
+            <table id="tabela1">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data</th>
+                        <th>Local</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    
+    </div>
+
+    <div id="s">   
+
+        <!-- Cadastro de Convidados -->
+        <section id="cadastro2">
+            <h2>Cadastro de Convidado</h2>
+            <form id="formCadastroConvidado">
+                <label for="convidadoNome">Nome:</label>
+                <input type="text" name="nome" id="convidadoNome"><br>
+
+                <label for="convidadoEmail">E-mail</label>
+                <input type="email" name="email" id="convidadoEmail"><br>
+
+                <button type="reset">Limpar</button>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <h1>Relatório de Convidados</h1>
+            <table id="tabela2">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <div id="s">
+        
+        <!-- Cadastro de Fornecedores -->
+        <section id="cadastro3">
+           <h2>Cadastro de Fornecedor</h2>
+           <form id="formCadastroFornecedor">
+               <label for="fornecedorNome">Nome:</label>
+               <input type="text" name="nome" id="fornecedorNome"><br>
+   
+               <label for="fornecedorPreco">Preço:</label>
+               <input type="text" name="preco" id="fornecedorPreco"><br>
+   
+               <label for="fornecedorEmail">E-mail</label>
+               <input type="email" name="email" id="fornecedorEmail"><br>
+   
+               <button type="reset">Limpar</button>
+               <button type="submit">Cadastrar</button>
+           </form>
+
+           <h1>Relatório de Fornecedores</h1> 
+           <table id="tabela3">
+               <thead>
+                   <tr>
+                       <th>Nome</th>
+                       <th>Preço</th>
+                       <th>Email</th>
+                       <th>Ações</th>
+                   </tr>
+               </thead>
+               <tbody></tbody>
+           </table>
+        </section>
+    </div>
+
+    <script>
+        // Recuperando dados do Local Storage
+        let dados1 = JSON.parse(localStorage.getItem('dados1')) || [];   
+        let dados2 = JSON.parse(localStorage.getItem('dados2')) || [];
+        let dados3 = JSON.parse(localStorage.getItem('dados3')) || [];
+        
+        let editIndex1 = null;
+        let editIndex2 = null;
+        let editIndex3 = null;
+
+        // Função para remover um cadastro
+        function removerCadastro(index, dados, chaveLocalStorage) {
+            dados.splice(index, 1);
+            localStorage.setItem(chaveLocalStorage, JSON.stringify(dados));
+            window.location.reload();
+        }
+
+        // Função para preencher o formulário com os dados para edição
+        function preencherFormulario(dados, index, formulario, campos) {
+            campos.forEach(campo => {
+                formulario[campo].value = dados[index][campo];
+            });
+            return index; // Retorna o índice do item a ser editado
+        }
+
+        // Função para atualizar cada tabela
+        function atualizarTabela(tabela, dados, chaveLocalStorage, editFunction) {
+            const tabelaCorpo = tabela.querySelector('tbody');
+            tabelaCorpo.innerHTML = '';
+            dados.forEach((cadastro, index) => {
+                const linha = document.createElement('tr');
+                const campos = Object.keys(cadastro).map(campo => `<td>${cadastro[campo]}</td>`).join('');
+                linha.innerHTML = `
+                    ${campos}
+                    <td>
+                        <a href="#" onclick="${editFunction}(${index})">Editar</a>
+                        <a href="#" onclick="removerCadastro(${index}, ${chaveLocalStorage}, '${chaveLocalStorage}')">Excluir</a>
+                    </td>
+                `;
+                tabelaCorpo.appendChild(linha);
+            });
+        }
+
+        // Funções de cadastro e edição para Eventos
+        document.getElementById('formCadastroEvento').addEventListener('submit', function (s) {
+            s.preventDefault();
+            let cadastro = {
+                nome: document.getElementById('eventoNome').value,
+                data: document.getElementById('eventoData').value,
+                local: document.getElementById('eventoLocal').value
+            };
+            if (editIndex1 !== null) {
+                dados1[editIndex1] = cadastro;
+                editIndex1 = null;
+            } else {
+                dados1.push(cadastro);
+            }
+            localStorage.setItem('dados1', JSON.stringify(dados1));
+            atualizarTabela(document.getElementById('tabela1'), dados1, 'dados1', 'editarEvento');
+            this.reset();
+        });
+
+        function editarEvento(index) {
+            editIndex1 = preencherFormulario(dados1, index, document.getElementById('formCadastroEvento'), ['nome', 'data', 'local']);
+        }
+
+        // Funções de cadastro e edição para Convidados
+        document.getElementById('formCadastroConvidado').addEventListener('submit', function (s) {
+            s.preventDefault();
+            let cadastro = {
+                nome: document.getElementById('convidadoNome').value,
+                email: document.getElementById('convidadoEmail').value
+            };
+            if (editIndex2 !== null) {
+                dados2[editIndex2] = cadastro;
+                editIndex2 = null;
+            } else {
+                dados2.push(cadastro);
+            }
+            localStorage.setItem('dados2', JSON.stringify(dados2));
+            atualizarTabela(document.getElementById('tabela2'), dados2, 'dados2', 'editarConvidado');
+            this.reset();
+        });
+
+        function editarConvidado(index) {
+            editIndex2 = preencherFormulario(dados2, index, document.getElementById('formCadastroConvidado'), ['nome', 'email']);
+        }
+
+        // Funções de cadastro e edição para Fornecedores
+        document.getElementById('formCadastroFornecedor').addEventListener('submit', function (s) {
+            s.preventDefault();
+            let cadastro = {
+                nome: document.getElementById('fornecedorNome').value,
+                preco: document.getElementById('fornecedorPreco').value,
+                email: document.getElementById('fornecedorEmail').value
+            };
+            if (editIndex3 !== null) {
+                dados3[editIndex3] = cadastro;
+                editIndex3 = null;
+            } else {
+                dados3.push(cadastro);
+            }
+            localStorage.setItem('dados3', JSON.stringify(dados3));
+            atualizarTabela(document.getElementById('tabela3'), dados3, 'dados3', 'editarFornecedor');
+            this.reset();
+        });
+
+        function editarFornecedor(index) {
+            editIndex3 = preencherFormulario(dados3, index, document.getElementById('formCadastroFornecedor'), ['nome', 'preco', 'email']);
+        }
+
+        // Carregar as tabelas ao carregar a página
+        window.onload = function() {
+            atualizarTabela(document.getElementById('tabela1'), dados1, 'dados1', 'editarEvento');
+            atualizarTabela(document.getElementById('tabela2'), dados2, 'dados2', 'editarConvidado');
+            atualizarTabela(document.getElementById('tabela3'), dados3, 'dados3', 'editarFornecedor');
+        };
+    </script>
+
+</body>
+</html>

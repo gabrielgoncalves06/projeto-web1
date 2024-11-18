@@ -1,0 +1,165 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+header {
+    background-color: #16181a;
+    padding: 1rem;
+}
+
+
+/* para o menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown > a {
+    color: #fff;
+    padding: 15px 20px;
+    margin: 0;
+    text-decoration: none;
+    display: inline-block;
+   
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    top: 100%; /* Coloca o dropdown logo abaixo do botão */
+    left: 0;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #333;
+}
+
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+/* Mostrar o submenu ao passar o mouse */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilo de hover no item principal */
+.dropdown > a:hover,
+a:hover {
+    background-image: linear-gradient(to top, #000, #222);
+}
+
+
+
+nav{
+    background-color: rgb(3, 3, 3);
+    align-items: left;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-image: linear-gradient(to bottom, #000, #222);
+    display: flex;
+    gap: 15px;
+    border-bottom: 2px solid #000;
+    max-width: 19500px;
+    min-width: 240px;
+  
+}
+
+a{
+    text-decoration: none;
+    color: #ffff;
+    padding :15px 20px;
+    margin: 0;
+
+
+}
+
+a:hover{
+    background-image: linear-gradient(to top, #000, #222);
+}
+
+nav.shrink, a.shrink{
+
+    padding: 8px 20px;
+}
+
+/* Seções principais */
+main {
+    margin: 20px;
+}
+
+.section-title {
+    color: #003366;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 10px;
+}
+
+article {
+    background-color: #fff;
+    border-left: 4px solid #003366;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgb(122, 122, 122);
+   
+}
+
+article h2 {
+    color: #00509e;
+    margin-bottom: 10px;
+}
+
+article p {
+    color: #555;
+}
+
+/* Orçamento e comentários */
+#orcamento, #comentarios {
+    background-color: #e6f2ff;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+
+
+/* Rodapé */
+footer{
+    background-color: #646668;
+    color: white;
+    text-align: center;
+    padding: 30px;
+   
+}
+
+
+/* Estilos adicionais */
+h1, h2 {
+    font-weight: bold;
+}
+
+p {
+    line-height: 1.6;
+}
